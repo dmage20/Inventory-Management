@@ -1,0 +1,19 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = $('#new_order_product');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addOrderProduct() {
+  const insertHere = $('.list-group')[0].children[0];
+  insertHere.insertAdjacentHTML('beforebegin',
+   `<li class="list-group-item"> <%=@order_product.product.name %> - <%= @order_product.quantity%> Units <a rel="nofollow" data-method="delete" href="/orders/<%= @order_product.order.id %>/order_products/<%= @order_product.id %>">Remove</a></li>`);
+   // '<li class="list-group-item"> Hello - 3 Units</li>');
+}
+
+<% if @order_product.errors.any? %>
+  refreshForm('<%= j render "order_products/form", order: @order, order_product: @order_product %>');
+<% else %>
+  addOrderProduct();
+  refreshForm('<%= j render "order_products/form", order: @order, order_product: OrderProduct.new %>');
+<% end %>
+

@@ -5,8 +5,8 @@
     <p class="card-text"><%= @order.customer.address %><br> Delivery: <%= @order.delivery_date %></p>
   </div>
   <ul class="list-group list-group-flush">
-    <% @order_products.each do |order_product| %>
-    <li class="list-group-item"><% order_product.product.name %></li>
+    <% @order_products.order('created_at  DESC').each do |order_product| %>
+    <li class="list-group-item"> <%= order_product.product.name %> - <%= order_product.quantity %> Units <%= link_to "Remove", order_order_product_url(order_product.order,order_product), method: :delete %></li>
     <% end %>
     <li class="list-group-item"><%= render 'order_products/form' %></li>
   </ul>
