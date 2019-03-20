@@ -2,12 +2,13 @@
     <div class="card" style="width: 24rem;">
   <div class="card-body">
     <h5 class="card-title"><%= @order.customer.name %></h5>
-    <p class="card-text"><%= @order.customer.address %> Delivery: <%= @order.delivery_date %></p>
+    <p class="card-text"><%= @order.customer.address %><br> Delivery: <%= @order.delivery_date %></p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <% @order_products.each do |order_product| %>
+    <li class="list-group-item"><% order_product.product.name %></li>
+    <% end %>
+    <li class="list-group-item"><%= render 'order_products/form' %></li>
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Card link</a>

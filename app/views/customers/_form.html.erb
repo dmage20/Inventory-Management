@@ -1,0 +1,11 @@
+<div class="container">
+  <%= simple_form_for(@customer) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn-primary" %>
+  </div>
+  <% end %>
+</div>
