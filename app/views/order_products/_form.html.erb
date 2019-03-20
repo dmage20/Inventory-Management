@@ -1,6 +1,6 @@
 <%= simple_form_for([ @order, @order_product ], remote: true) do |form| %>
   <div class="form-inputs">
-  <%= form.input :quantity %>
+  <%= form.input :quantity, collection: (1..20) %>
   <%= form.input :product_id, collection:  @products, prompt: "Choose a Product"%>
   </div>
    <div class="form-actions">

@@ -1,8 +1,8 @@
 <div class="d-flex container justify-content-center">
     <div class="card" style="width: 24rem;">
   <div class="card-body">
-    <h5 class="card-title"><%#= @order.customer.name %></h5>
-    <p class="card-text"><%#= @order.customer.address %> Delivery: <%= @order.delivery_date %></p>
+    <h5 class="card-title"><%= @order.customer.name %></h5>
+    <p class="card-text"><%= @order.customer.address %><br> Delivery: <%= @order.delivery_date %></p>
   </div>
   <ul class="list-group list-group-flush">
     <% @order_products.each do |order_product| %>
