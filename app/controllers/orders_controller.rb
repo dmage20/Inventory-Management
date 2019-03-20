@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
         @order_product = OrderProduct.new
         @products = Product.where(user: current_user)
         @order_products = OrderProduct.where(order_id: @order.id)
-        
     end
 
     def new
